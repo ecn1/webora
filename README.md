@@ -128,6 +128,8 @@ Releases are read from GitHub:
 
 The updater picks the release's Windows `.exe` asset, preferring a name containing `Setup` or `Install`. Only published, non-draft releases are considered, and stable never offers a prerelease. If GitHub is unreachable or no release exists yet, the automatic check fails silently and the manual check reports the reason.
 
+To publish an update, run `npm run dist`, create a GitHub Release tagged `vX.Y.Z`, attach the generated `.exe`, and publish it. Mark beta builds as prereleases. No separate feed file or hosting is required.
+
 Custom JSON feed shapes are still accepted through overrides:
 
 ```json
