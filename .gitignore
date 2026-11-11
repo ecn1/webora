@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-electron/
+release/
+
+# Local test bundles produced by npm run check
+scripts/.codegen.check.mjs
+scripts/.ai.e2e.check.mjs
+
+# Local environment and editor noise
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db

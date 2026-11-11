@@ -1,0 +1,75 @@
+{
+  "name": "webora",
+  "version": "1.2.0",
+  "description": "Webora — AI Website Builder for Windows",
+  "main": "dist-electron/main.js",
+  "author": "Webora",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "npm run check:core && npm run check:ai",
+    "check:core": "esbuild scripts/codegen.check.ts --bundle --platform=node --format=esm --packages=external --outfile=scripts/.codegen.check.mjs && node scripts/.codegen.check.mjs",
+    "check:ai": "esbuild scripts/ai.e2e.check.ts --bundle --platform=node --format=esm --packages=external --outfile=scripts/.ai.e2e.check.mjs && node scripts/.ai.e2e.check.mjs",
+    "dist": "vite build && electron-builder --win --x64",
+    "dist:portable": "vite build && electron-builder --win portable --x64"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/space-grotesk": "^5.1.0",
+    "@monaco-editor/react": "^4.6.0",
+    "clsx": "^2.1.1",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.454.0",
+    "monaco-editor": "^0.52.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.0.2",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "build": {
+    "appId": "com.webora.app",
+    "productName": "Webora",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "allowScripts": {
+    "electron@33.4.11": true,
+    "esbuild@0.21.5": true
+  }
+}
