@@ -22,11 +22,11 @@ Built with Electron 33, React 18, TypeScript, Vite, Tailwind, Zustand, Monaco an
 
 ### Option A — Installer
 
-Download `Webora Setup 1.2.0.exe` from the [v1.2.0 release](https://github.com/ecn1/webora/releases/tag/v1.2.0) and run it. The NSIS installer lets you choose the install folder and creates Desktop and Start Menu shortcuts.
+Download `Webora.Setup.1.2.0.exe` from the [v1.2.0 release](https://github.com/ecn1/webora/releases/tag/v1.2.0) and run it. The NSIS installer lets you choose the install folder and creates Desktop and Start Menu shortcuts.
 
 ### Option B — Portable
 
-Download `Webora 1.2.0.exe` from the same release and run it. No installation; it unpacks to a temporary folder and launches. Projects are still stored in `%APPDATA%\webora\webora-data`, so they persist between runs.
+Download `Webora.1.2.0.exe` from the same release and run it. No installation; it unpacks to a temporary folder and launches. Projects are still stored in `%APPDATA%\webora\webora-data`, so they persist between runs.
 
 Both binaries are unsigned, so Windows SmartScreen may show a warning. Choose **More info → Run anyway**. SHA-256 checksums are in the release notes and `DEVELOPMENT_LOG.md`; verify with `Get-FileHash <file> -Algorithm SHA256`.
 
