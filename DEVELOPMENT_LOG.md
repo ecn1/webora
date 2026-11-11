@@ -182,7 +182,7 @@ $env:CDP_PORT="9222"; node scripts/cdp-check.mjs
    The preview iframe sandbox lacked `allow-same-origin`, so YouTube's player threw `SecurityError: Failed to read the 'cookie' property from 'Document'`. Added `allow-same-origin` to the preview sandbox only (it runs the user's own generated site). Player errors stopped; real playback could not be confirmed in this environment.
 
 3. **YouTube error 153 from `file://`.**
-   Electron now sends a synthetic `Referer: https://webora.app/` for YouTube, Vimeo and ytimg requests in the main process.
+   Electron now sends a synthetic referer for YouTube, Vimeo and ytimg requests in the main process. The 1.1 value pointed at the unowned `webora.app`; 1.2 replaced it with `https://github.com/ecn1/webora`.
 
 4. **Mail links rendered `+` instead of spaces.**
    `URLSearchParams` encodes spaces as `+`, which mail clients show literally. `mailComposeUrl` now builds queries with `encodeURIComponent` (`%20`). Verified the Gmail compose URL opened with correct subject/body.
