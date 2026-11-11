@@ -313,9 +313,11 @@ node scripts/.codegen.check.mjs
 | Recovery | Save snapshot creation | Pass — prev, session and daily files written |
 | Recovery | Detect + restore | Pass — “Newest snapshot projects-prev.json · 1 project”, restore merged |
 | Recovery | ID/name collision | Pass — added `Verification Site (recovered)`, original untouched |
-| Updates | GitHub Releases discovery | Pass — `v1.2.0` release found; installed 1.2.0 correctly reported as current |
+| Updates | GitHub Releases discovery | Pass — `v1.2.0` release found on stable and beta; installed 1.2.0 correctly reported as current |
+| Updates | GitHub asset selection | Pass — `Webora.Setup.1.2.0.exe` preferred over the portable asset |
+| Updates | GitHub asset download | Pass — downloaded to `%LOCALAPPDATA%\Temp\webora-updates`; SHA-256 matched the local installer |
 | Updates | Launch banner from local feed | Pass — v1.2.1 notes and **Update and restart** shown |
-| Updates | Installer download | Pass — downloaded to `%LOCALAPPDATA%\Temp\webora-updates` |
+| Updates | Local feed download | Pass — override feed downloaded its installer to `%LOCALAPPDATA%\Temp\webora-updates` |
 | Package | `win-unpacked` launch | Pass — v1.2.0 in sidebar, fixture project loaded, clean exit |
 | Package | Portable `Webora 1.2.0.exe` launch | Pass — extracted, opened, reported v1.2.0, clean exit |
 
@@ -327,6 +329,8 @@ node scripts/.codegen.check.mjs
 | `release/Webora 1.2.0.exe` | 101.08 MB | `B5034CD6A6116B57C9603D7B53A532F4CD0299DC6EEEA277D8FB1134C6C40943` |
 
 Build config is unchanged: `appId com.webora.app`, NSIS with selectable install folder and shortcuts, portable target, icon `build/icon.png`, files limited to `dist/**/*` and `dist-electron/**/*`.
+
+Published at `https://github.com/ecn1/webora/releases/tag/v1.2.0` from source commit `f13a9ee`. GitHub normalises spaces in asset names to dots; the updater still matches the `Setup` asset.
 
 **Unverified / gaps**
 
